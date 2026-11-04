@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:comment>
+    The active bookings of the logged in frontend user with a cancel button
+    each; a hint for visitors who are not logged in.
+
+    Variables: loggedIn (bool), bookings (Booking[]), settings.
+</f:comment>
+<f:section name="Main">
+    <div class="golbbooking golbbooking--mine">
+        <h2 class="golbbooking__title"><f:translate key="myBookings.title" extensionName="GolbEventsBooking"/></h2>
+        <f:flashMessages as="flashMessages">
+            <ul class="golbbooking-messages">
+                <f:for each="{flashMessages}" as="flashMessage">
+                    <li class="golbbooking-messages__item golbbooking-messages__item--{flashMessage.severity.cssClass}">{flashMessage.message}</li>
+                </f:for>
+            </ul>
+        </f:flashMessages>
+        <f:if condition="{loggedIn}">
+            <f:then>
+                <f:if condition="{bookings}">
+                    <f:then>
+                        <ul class="golbbooking-list">
+                            <f:for each="{bookings}" as="booking">
+                                <li class="golbbooking-list__item">
+                                    <f:render partial="Booking/Summary" arguments="{booking: booking, event: booking.event, occurrence: booking.occurrence, settings: settings}"/>
+                                    <f:form action="cancel" controller="MyBookings" arguments="{booking: booking}" class="golbbooking-form golbbooking-form--cancel">
+                                        <p class="golbbooking-form__actions">
+                                            <f:form.submit value="{f:translate(key: 'myBookings.cancel', extensionName: 'GolbEventsBooking')}" class="golbbooking-form__submit golbbooking-form__submit--cancel"/>
+                                        </p>
+                                    </f:form>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:then>
+                    <f:else>
+                        <p class="golbbooking-notice"><f:translate key="myBookings.empty" extensionName="GolbEventsBooking"/></p>
+                    </f:else>
+                </f:if>
+            </f:then>
+            <f:else>
+                <p class="golbbooking-notice golbbooking-notice--login"><f:translate key="myBookings.login" extensionName="GolbEventsBooking"/></p>
+            </f:else>
+        </f:if>
+    </div>
+</f:section>
+</html>

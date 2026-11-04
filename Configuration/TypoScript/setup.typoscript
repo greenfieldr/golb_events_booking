@@ -46,8 +46,9 @@ plugin.tx_golbeventsbooking {
     }
 }
 
-# The plugin inherits from plugin.tx_golbeventsbooking
+# The plugins inherit from plugin.tx_golbeventsbooking
 plugin.tx_golbeventsbooking_form < plugin.tx_golbeventsbooking
+plugin.tx_golbeventsbooking_mybookings < plugin.tx_golbeventsbooking
 
 # The booking form as TypoScript object for the detail rendering of event
 # pages, e.g. in the page template of the site for event pages only:

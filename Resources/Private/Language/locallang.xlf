@@ -360,6 +360,24 @@
             <trans-unit id="mail.cancelHint">
                 <source>You cannot attend? Cancel your booking here:</source>
             </trans-unit>
+            <trans-unit id="myBookings.title">
+                <source>My bookings</source>
+            </trans-unit>
+            <trans-unit id="myBookings.empty">
+                <source>You have no upcoming bookings.</source>
+            </trans-unit>
+            <trans-unit id="myBookings.login">
+                <source>Please log in to see your bookings.</source>
+            </trans-unit>
+            <trans-unit id="myBookings.cancel">
+                <source>Cancel this booking</source>
+            </trans-unit>
+            <trans-unit id="myBookings.cancelled">
+                <source>Your booking has been cancelled.</source>
+            </trans-unit>
+            <trans-unit id="myBookings.notYours">
+                <source>This booking cannot be cancelled here.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

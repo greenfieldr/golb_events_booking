@@ -10,6 +10,14 @@ mod.wizards.newContentElement.wizardItems.ext-golb {
                 CType = golbeventsbooking_form
             }
         }
+        golbeventsbooking_mybookings {
+            iconIdentifier = ext-golbeventsbooking-plugin-my-bookings
+            title = LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:tt_content.plugin.myBookings.title
+            description = LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:tt_content.plugin.myBookings.description
+            tt_content_defValues {
+                CType = golbeventsbooking_mybookings
+            }
+        }
     }
     show = *
 }

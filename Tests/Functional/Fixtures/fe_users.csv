@@ -1,3 +1,4 @@
 "fe_users",,,,,,,,,,,,
 ,"uid","pid","username","password","usergroup","name","first_name","last_name","email","telephone","company","disable"
 ,1,1,"grace","$argon2i$v=19$m=65536,t=16,p=1$VTFhNFYxUTF0SGo1aWpOTw$YBOJqYv0Xtm6kH3p/9AAX+F5m3eLBvYMN+1s6ZIe0AY","","Grace Hopper","Grace","Hopper","grace@example.org","+1 555 0100","Navy",0
+,2,1,"other","$argon2i$v=19$m=65536,t=16,p=1$VTFhNFYxUTF0SGo1aWpOTw$YBOJqYv0Xtm6kH3p/9AAX+F5m3eLBvYMN+1s6ZIe0AY","","Other User","Other","User","other@example.org","","",0

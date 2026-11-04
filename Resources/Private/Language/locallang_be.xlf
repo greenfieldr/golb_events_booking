@@ -27,6 +27,12 @@
             <trans-unit id="flexforms_form.occurrenceLimit.description">
                 <source>How many upcoming dates of a recurring event are offered; empty for the TypoScript default.</source>
             </trans-unit>
+            <trans-unit id="tt_content.plugin.myBookings.title">
+                <source>My bookings</source>
+            </trans-unit>
+            <trans-unit id="tt_content.plugin.myBookings.description">
+                <source>Lists the bookings of the logged in frontend user and lets them cancel.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

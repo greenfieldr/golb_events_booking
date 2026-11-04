@@ -246,3 +246,17 @@
 .golbbooking-status--cancelled {
     color: rgb(200 60 60);
 }
+
+/* My bookings ------------------------------------------------------------- */
+
+.golbbooking-list {
+    display: grid;
+    gap: var(--golb-space-l);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.golbbooking-list__item .golbbooking-summary {
+    margin-bottom: var(--golb-space);
+}

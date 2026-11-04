@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 
 use Greenfieldr\GolbEventsBooking\Controller\BookingController;
+use Greenfieldr\GolbEventsBooking\Controller\MyBookingsController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') || die();
@@ -26,4 +27,12 @@ ExtensionUtility::configurePlugin(
     'Form',
     [BookingController::class => 'form,create,success,confirm,cancel'],
     [BookingController::class => 'form,create,success,confirm,cancel']
+);
+
+// The list depends on the logged in user
+ExtensionUtility::configurePlugin(
+    'GolbEventsBooking',
+    'MyBookings',
+    [MyBookingsController::class => 'list,cancel'],
+    [MyBookingsController::class => 'list,cancel']
 );
