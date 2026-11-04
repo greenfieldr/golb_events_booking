@@ -6,6 +6,27 @@
             <trans-unit id="extension.title">
                 <source>Golb Events Booking</source>
             </trans-unit>
+            <trans-unit id="tt_content.plugin.form.title">
+                <source>Booking form</source>
+            </trans-unit>
+            <trans-unit id="tt_content.plugin.form.description">
+                <source>Lets visitors book the dates of an event. Shows the form for the current event page or the event selected in the plugin.</source>
+            </trans-unit>
+            <trans-unit id="flexforms_tab.settings">
+                <source>Plugin settings</source>
+            </trans-unit>
+            <trans-unit id="flexforms_form.eventUid">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="flexforms_form.eventUid.description">
+                <source>The event page whose dates are offered. Leave empty on event pages to use the current page.</source>
+            </trans-unit>
+            <trans-unit id="flexforms_form.occurrenceLimit">
+                <source>Number of dates offered</source>
+            </trans-unit>
+            <trans-unit id="flexforms_form.occurrenceLimit.description">
+                <source>How many upcoming dates of a recurring event are offered; empty for the TypoScript default.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

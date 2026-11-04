@@ -17,4 +17,8 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:golb_events_booking/Resources/Public/Icons/tx_golbeventsbooking_domain_model_booking.svg',
     ],
+    'ext-golbeventsbooking-plugin-form' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:golb_events_booking/Resources/Public/Icons/plugin_form.svg',
+    ],
 ];

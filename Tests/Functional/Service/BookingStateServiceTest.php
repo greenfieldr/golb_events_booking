@@ -266,13 +266,13 @@ final class BookingStateServiceTest extends AbstractBookingTestCase
     #[Test]
     public function bookingClosesTheConfiguredHoursBeforeTheStart(): void
     {
-        // Lecture on 2026-05-05 10:00 UTC closes 24 hours before
-        $this->freezeTime('2026-05-04 09:59:59');
+        // Lecture on 2099-05-05 10:00 UTC closes 24 hours before
+        $this->freezeTime('2099-05-04 09:59:59');
         $booking = $this->subject->book($this->newBooking('a@example.org', 1, 1), $this->occurrence(2), $this->settingsOf(4));
         self::assertTrue($booking->isConfirmed());
         $this->subject->cancel($booking, $this->settingsOf(4));
 
-        $this->freezeTime('2026-05-04 10:00:00');
+        $this->freezeTime('2099-05-04 10:00:00');
         $this->expectException(BookingClosedException::class);
         $this->subject->book($this->newBooking('b@example.org', 1, 2), $this->occurrence(2), $this->settingsOf(4));
     }

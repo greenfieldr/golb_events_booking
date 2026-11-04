@@ -1,0 +1,15 @@
+mod.wizards.newContentElement.wizardItems.ext-golb {
+    header = LLL:EXT:golb/Resources/Private/Language/locallang_be.xlf:wizard_group
+    after = common
+    elements {
+        golbeventsbooking_form {
+            iconIdentifier = ext-golbeventsbooking-plugin-form
+            title = LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:tt_content.plugin.form.title
+            description = LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:tt_content.plugin.form.description
+            tt_content_defValues {
+                CType = golbeventsbooking_form
+            }
+        }
+    }
+    show = *
+}

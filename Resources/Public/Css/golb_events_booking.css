@@ -1,0 +1,248 @@
+/*
+ * Golb Events Booking - default stylesheet
+ *
+ * Builds on the Golb stylesheet (golb.css: custom properties on .golb) and
+ * adds the booking blocks: golbbooking (wrapper), golbbooking-form,
+ * golbbooking-dates, golbbooking-summary, golbbooking-notice,
+ * golbbooking-messages and golbbooking-status. Plain CSS, no framework,
+ * no brand colours. Adjust the custom properties on .golb, add your own
+ * stylesheet to plugin.tx_golbeventsbooking.settings.css or disable the
+ * files with the constant plugin.tx_golbeventsbooking.settings.includeCss.
+ */
+
+.golbbooking {
+    margin: var(--golb-space-l) 0;
+    max-width: var(--golb-measure);
+}
+
+.golbbooking__title {
+    margin: 0 0 var(--golb-space);
+}
+
+/* Notices and messages ---------------------------------------------------- */
+
+.golbbooking-notice,
+.golbbooking-messages__item {
+    margin: 0 0 var(--golb-space);
+    padding: calc(var(--golb-space) * 0.75) var(--golb-space);
+    border-left: 0.25rem solid var(--golb-border);
+    background: var(--golb-surface);
+    border-radius: var(--golb-radius);
+}
+
+.golbbooking-messages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.golbbooking-notice--confirmed,
+.golbbooking-messages__item--success {
+    border-left-color: rgb(40 160 90 / 80%);
+}
+
+.golbbooking-notice--pending,
+.golbbooking-notice--waiting,
+.golbbooking-notice--ask,
+.golbbooking-messages__item--warning {
+    border-left-color: rgb(220 160 40 / 90%);
+}
+
+.golbbooking-notice--cancelled,
+.golbbooking-notice--failed,
+.golbbooking-notice--full,
+.golbbooking-messages__item--danger {
+    border-left-color: rgb(200 60 60 / 80%);
+}
+
+/* Form -------------------------------------------------------------------- */
+
+.golbbooking-form__fieldset {
+    margin: 0 0 var(--golb-space-l);
+    padding: 0;
+    border: 0;
+}
+
+.golbbooking-form__legend {
+    margin: 0 0 var(--golb-space);
+    padding: 0;
+    font-weight: 600;
+}
+
+.golbbooking-form__row {
+    margin: 0 0 var(--golb-space);
+}
+
+.golbbooking-form__columns {
+    display: grid;
+    gap: 0 var(--golb-space);
+}
+
+@media (min-width: 40em) {
+    .golbbooking-form__columns {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.golbbooking-form__label {
+    display: block;
+    margin: 0 0 0.25rem;
+    font-size: var(--golb-small);
+}
+
+.golbbooking-form__required {
+    opacity: var(--golb-muted);
+}
+
+.golbbooking-form__input,
+.golbbooking-form__select,
+.golbbooking-form__textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: 1px solid var(--golb-border);
+    border-radius: var(--golb-radius);
+}
+
+.golbbooking-form__input--seats {
+    width: 6rem;
+}
+
+.golbbooking-form__hint {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: var(--golb-small);
+    opacity: var(--golb-muted);
+}
+
+.golbbooking-form__checkbox {
+    display: flex;
+    gap: 0.5rem;
+    align-items: start;
+}
+
+.golbbooking-form__checkbox input {
+    margin: 0.3em 0 0;
+}
+
+.golbbooking-form__errors {
+    margin: 0.25rem 0 0;
+    padding: 0 0 0 1.25rem;
+    font-size: var(--golb-small);
+    color: rgb(200 60 60);
+}
+
+.golbbooking-form__errors--form {
+    margin: 0 0 var(--golb-space);
+}
+
+/* Honeypot, off screen but focusable by robots */
+.golbbooking-form__website {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.golbbooking-form__actions {
+    margin: 0;
+}
+
+.golbbooking-form__submit,
+.golbbooking__action {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    font: inherit;
+    font-weight: 600;
+    color: inherit;
+    background: var(--golb-surface-strong);
+    border: 1px solid var(--golb-border);
+    border-radius: var(--golb-radius);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.golbbooking-form__submit:hover,
+.golbbooking__action:hover {
+    background: var(--golb-border);
+}
+
+/* Dates ------------------------------------------------------------------- */
+
+.golbbooking-dates__list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.golbbooking-dates__item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem var(--golb-space);
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--golb-border);
+    border-radius: var(--golb-radius);
+}
+
+.golbbooking-dates__item--unavailable {
+    opacity: var(--golb-muted);
+}
+
+.golbbooking-dates__label {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.golbbooking-dates__seats {
+    font-size: var(--golb-small);
+}
+
+.golbbooking-dates__item--waiting .golbbooking-dates__seats {
+    font-style: italic;
+}
+
+/* Summary ----------------------------------------------------------------- */
+
+.golbbooking-summary {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem var(--golb-space);
+    margin: 0 0 var(--golb-space-l);
+    padding: var(--golb-space);
+    background: var(--golb-surface);
+    border-radius: var(--golb-radius);
+}
+
+.golbbooking-summary dt {
+    font-size: var(--golb-small);
+    opacity: var(--golb-muted);
+}
+
+.golbbooking-summary dd {
+    margin: 0;
+}
+
+.golbbooking-summary__removed {
+    display: block;
+    font-size: var(--golb-small);
+    color: rgb(200 60 60);
+}
+
+.golbbooking-status--confirmed {
+    color: rgb(40 160 90);
+}
+
+.golbbooking-status--cancelled {
+    color: rgb(200 60 60);
+}

@@ -10,4 +10,15 @@ declare(strict_types=1);
  * of the License, or any later version.
  */
 
+use Greenfieldr\GolbEventsBooking\Controller\BookingController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') || die();
+
+// The free seats change with every booking, so every action is uncached
+ExtensionUtility::configurePlugin(
+    'GolbEventsBooking',
+    'Form',
+    [BookingController::class => 'form,create,success,confirm,cancel'],
+    [BookingController::class => 'form,create,success,confirm,cancel']
+);

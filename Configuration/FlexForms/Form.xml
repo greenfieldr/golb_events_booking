@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:flexforms_tab.settings</sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.eventUid>
+                        <label>LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:flexforms_form.eventUid</label>
+                        <description>LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:flexforms_form.eventUid.description</description>
+                        <config>
+                            <type>group</type>
+                            <allowed>pages</allowed>
+                            <size>1</size>
+                            <maxitems>1</maxitems>
+                            <suggestOptions>
+                                <default>
+                                    <addWhere> AND pages.doktype = 42</addWhere>
+                                </default>
+                            </suggestOptions>
+                        </config>
+                    </settings.eventUid>
+                    <settings.occurrenceLimit>
+                        <label>LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:flexforms_form.occurrenceLimit</label>
+                        <description>LLL:EXT:golb_events_booking/Resources/Private/Language/locallang_be.xlf:flexforms_form.occurrenceLimit.description</description>
+                        <config>
+                            <type>number</type>
+                            <range>
+                                <lower>1</lower>
+                            </range>
+                            <nullable>1</nullable>
+                        </config>
+                    </settings.occurrenceLimit>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

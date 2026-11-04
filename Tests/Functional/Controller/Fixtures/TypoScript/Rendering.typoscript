@@ -1,0 +1,23 @@
+config.no_cache = 1
+
+page = PAGE
+page.10 < styles.content.get
+
+# Event pages render the booking form through the TypoScript object
+[page["doktype"] == 42]
+    page.20 < lib.golbEventsBooking.form
+[END]
+
+# The storage folder of the fixture and no minimum fill time by default
+plugin.tx_golbeventsbooking.persistence.storagePid = 5
+plugin.tx_golbeventsbooking_form.persistence.storagePid = 5
+plugin.tx_golbeventsbooking.settings.minimumFillTime = 0
+plugin.tx_golbeventsbooking_form.settings.minimumFillTime = 0
+
+# Tests override plugin settings with the request parameter "golbBookingSettings"
+[request.getQueryParams()['golbBookingSettings'] ?? '' == 'minimumFillTime=60']
+    plugin.tx_golbeventsbooking_form.settings.minimumFillTime = 60
+[END]
+[request.getQueryParams()['golbBookingSettings'] ?? '' == 'privacyPageUid=1']
+    plugin.tx_golbeventsbooking_form.settings.privacyPageUid = 1
+[END]

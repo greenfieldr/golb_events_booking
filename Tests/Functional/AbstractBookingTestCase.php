@@ -27,8 +27,8 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  * Shared setup for tests working with the booking fixture: the event pages
  * 3 (Workshop, 3 seats, 2 per booking, waiting list), 4 (Lecture, 1 seat,
  * closes 24 hours before), 6 (Open day, unlimited, opens 2026-06-01, two
- * dates) and 7 (booking disabled), the storage folder 5 and the
- * occurrences 1 to 5.
+ * dates), 7 (booking disabled) and 8 (opens 2099, two dates), the storage
+ * folder 5 and the occurrences 1 to 7. All dates lie in 2099.
  */
 abstract class AbstractBookingTestCase extends FunctionalTestCase
 {
@@ -42,6 +42,8 @@ abstract class AbstractBookingTestCase extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/Fixtures/BookingSite.csv');
         $this->freezeTime();
         $this->configureExtension(['doubleOptIn' => '1', 'pendingHours' => '48', 'retentionDays' => '0']);
+        // The fixture dates lie in 2099 so frontend sub requests (real time) see them as upcoming
+        $this->get(ExtensionConfiguration::class)->set('golb_events', ['horizonYears' => '80']);
     }
 
     protected function freezeTime(string $now = '2026-01-01 12:00:00'): void

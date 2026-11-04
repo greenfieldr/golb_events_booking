@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:comment>
+    Target of the confirmation link: the booking is confirmed now, was
+    confirmed before, was cancelled meanwhile or could not be confirmed.
+
+    Variables: booking, event, occurrence, settings, outcome (confirmed,
+    already, cancelled, failed).
+</f:comment>
+<f:section name="Main">
+    <div class="golbbooking golbbooking--confirm">
+        <h2 class="golbbooking__title"><f:translate key="confirm.title.{outcome}" extensionName="GolbEventsBooking"/></h2>
+        <p class="golbbooking-notice golbbooking-notice--{outcome}"><f:translate key="confirm.text.{outcome}" extensionName="GolbEventsBooking"/></p>
+        <f:render partial="Booking/Summary" arguments="{booking: booking, event: event, occurrence: occurrence, settings: settings}"/>
+        <f:if condition="{booking.active}">
+            <p class="golbbooking__actions">
+                <f:link.action action="cancel" controller="Booking" arguments="{token: booking.token}" class="golbbooking__action golbbooking__action--cancel"><f:translate key="action.cancel" extensionName="GolbEventsBooking"/></f:link.action>
+            </p>
+        </f:if>
+    </div>
+</f:section>
+</html>

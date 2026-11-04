@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    The facts of a booking: event, date, seats, participant and status.
+
+    Variables: booking (Booking), event (Event or null), occurrence
+    (Occurrence or null), settings.
+</f:comment>
+<dl class="golbbooking-summary">
+    <f:if condition="{event}">
+        <dt><f:translate key="summary.event" extensionName="GolbEventsBooking"/></dt>
+        <dd><f:link.page pageUid="{event.uid}">{event.title}</f:link.page></dd>
+    </f:if>
+    <dt><f:translate key="summary.date" extensionName="GolbEventsBooking"/></dt>
+    <dd>
+        <f:if condition="{occurrence}">
+            <f:then><f:render partial="Event/Date" arguments="{occurrence: occurrence, settings: settings}"/></f:then>
+            <f:else>
+                <f:if condition="{booking.start}">
+                    {booking.start -> f:format.date(format: settings.dateFormat)} {booking.start -> f:format.date(format: settings.timeFormat)}
+                </f:if>
+                <f:if condition="{booking.dateRemoved}">
+                    <span class="golbbooking-summary__removed"><f:translate key="summary.dateRemoved" extensionName="GolbEventsBooking"/></span>
+                </f:if>
+            </f:else>
+        </f:if>
+    </dd>
+    <dt><f:translate key="summary.seats" extensionName="GolbEventsBooking"/></dt>
+    <dd>{booking.seats}</dd>
+    <dt><f:translate key="summary.participant" extensionName="GolbEventsBooking"/></dt>
+    <dd>{booking.name}<f:if condition="{booking.company}">, {booking.company}</f:if><br>{booking.email}</dd>
+    <dt><f:translate key="summary.status" extensionName="GolbEventsBooking"/></dt>
+    <dd class="golbbooking-status golbbooking-status--{booking.status}"><f:translate key="status.{booking.status}" extensionName="GolbEventsBooking"/></dd>
+</dl>
+</html>

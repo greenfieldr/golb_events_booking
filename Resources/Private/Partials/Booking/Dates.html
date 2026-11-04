@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    The dates of the event with their booking situation. One date is shown
+    as text with a hidden field, several dates as radio list. With readOnly
+    the list only informs (no form elements).
+
+    Variables: availabilities (OccurrenceAvailability[]), bookingRequest
+    (BookingRequest, unless readOnly), settings, readOnly (optional).
+</f:comment>
+<fieldset class="golbbooking-form__fieldset golbbooking-dates">
+    <legend class="golbbooking-form__legend"><f:translate key="form.date" extensionName="GolbEventsBooking"/></legend>
+    <ul class="golbbooking-dates__list">
+        <f:for each="{availabilities}" as="availability" iteration="iteration">
+            <li class="golbbooking-dates__item{f:if(condition: '!{availability.bookable}', then: ' golbbooking-dates__item--unavailable')}{f:if(condition: availability.waitingListOnly, then: ' golbbooking-dates__item--waiting')}">
+                <f:if condition="{readOnly} || {iteration.total} == 1">
+                    <f:then>
+                        <f:if condition="!{readOnly}">
+                            <f:form.hidden property="occurrence" value="{availability.occurrence.uid}"/>
+                        </f:if>
+                        <span class="golbbooking-dates__time"><f:render partial="Event/Date" arguments="{occurrence: availability.occurrence, settings: settings}"/></span>
+                    </f:then>
+                    <f:else>
+                        <label class="golbbooking-dates__label">
+                            <f:if condition="{availability.bookable}">
+                                <f:then><f:form.radio property="occurrence" value="{availability.occurrence.uid}" class="golbbooking-dates__radio"/></f:then>
+                                <f:else><input type="radio" class="golbbooking-dates__radio" disabled="disabled"/></f:else>
+                            </f:if>
+                            <span class="golbbooking-dates__time"><f:render partial="Event/Date" arguments="{occurrence: availability.occurrence, settings: settings}"/></span>
+                        </label>
+                    </f:else>
+                </f:if>
+                <span class="golbbooking-dates__seats">
+                    <f:if condition="!{availability.open}">
+                        <f:then><f:translate key="date.closed" extensionName="GolbEventsBooking"/></f:then>
+                        <f:else>
+                            <f:if condition="{availability.unlimited}">
+                                <f:then><f:translate key="date.open" extensionName="GolbEventsBooking"/></f:then>
+                                <f:else>
+                                    <f:if condition="{availability.full}">
+                                        <f:then>
+                                            <f:if condition="{availability.waitingList}">
+                                                <f:then><f:translate key="date.waitingList" extensionName="GolbEventsBooking"/></f:then>
+                                                <f:else><f:translate key="date.full" extensionName="GolbEventsBooking"/></f:else>
+                                            </f:if>
+                                        </f:then>
+                                        <f:else><f:translate key="date.freeSeats" extensionName="GolbEventsBooking" arguments="{0: availability.freeSeats}"/></f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </span>
+            </li>
+        </f:for>
+    </ul>
+    <f:if condition="!{readOnly}">
+        <f:render partial="Booking/Errors" arguments="{property: 'occurrence'}"/>
+    </f:if>
+</fieldset>
+</html>

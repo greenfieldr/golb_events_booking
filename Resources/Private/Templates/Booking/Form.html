@@ -1,0 +1,126 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:comment>
+    The booking form of an event: the upcoming dates with their free seats
+    (a radio list for recurring events, a single date otherwise), the
+    participant fields, the privacy checkbox and the spam protection.
+
+    Variables: event (Event), availabilities (OccurrenceAvailability[]),
+    bookable (bool, whether any date can be booked), bookingRequest
+    (BookingRequest), frontendUser (fe_users row or empty array), settings
+    (plugin settings; settings.booking holds the BookingSettings of the
+    event).
+</f:comment>
+<f:section name="Main">
+    <div class="golbbooking" id="golbbooking-{event.uid}">
+        <f:flashMessages as="flashMessages">
+            <ul class="golbbooking-messages">
+                <f:for each="{flashMessages}" as="flashMessage">
+                    <li class="golbbooking-messages__item golbbooking-messages__item--{flashMessage.severity.cssClass}">{flashMessage.message}</li>
+                </f:for>
+            </ul>
+        </f:flashMessages>
+
+        <h2 class="golbbooking__title"><f:translate key="form.title" extensionName="GolbEventsBooking"/></h2>
+
+        <f:if condition="{bookable}">
+            <f:then>
+                <f:form action="create" controller="Booking" object="{bookingRequest}" objectName="bookingRequest" class="golbbooking-form" novalidate="novalidate" section="golbbooking-{event.uid}">
+                    <f:form.hidden property="startedAt"/>
+
+                    <f:render partial="Booking/Dates" arguments="{availabilities: availabilities, bookingRequest: bookingRequest, settings: settings}"/>
+
+                    <fieldset class="golbbooking-form__fieldset golbbooking-form__participant">
+                        <legend class="golbbooking-form__legend"><f:translate key="form.participant" extensionName="GolbEventsBooking"/></legend>
+
+                        <div class="golbbooking-form__row">
+                            <label class="golbbooking-form__label" for="golbbooking-salutation"><f:translate key="form.salutation" extensionName="GolbEventsBooking"/></label>
+                            <f:form.select property="salutation" id="golbbooking-salutation" class="golbbooking-form__select" options="{salutationOptions}"/>
+                        </div>
+
+                        <div class="golbbooking-form__columns">
+                            <f:render partial="Booking/Field" arguments="{property: 'firstName', label: 'form.firstName', required: 1, autocomplete: 'given-name'}"/>
+                            <f:render partial="Booking/Field" arguments="{property: 'lastName', label: 'form.lastName', required: 1, autocomplete: 'family-name'}"/>
+                        </div>
+                        <f:render partial="Booking/Field" arguments="{property: 'email', label: 'form.email', required: 1, type: 'email', autocomplete: 'email'}"/>
+                        <div class="golbbooking-form__columns">
+                            <f:render partial="Booking/Field" arguments="{property: 'phone', label: 'form.phone', type: 'tel', autocomplete: 'tel'}"/>
+                            <f:render partial="Booking/Field" arguments="{property: 'company', label: 'form.company', autocomplete: 'organization'}"/>
+                        </div>
+
+                        <div class="golbbooking-form__row golbbooking-form__row--seats">
+                            <label class="golbbooking-form__label" for="golbbooking-seats"><f:translate key="form.seats" extensionName="GolbEventsBooking"/></label>
+                            <f:form.textfield property="seats" type="number" id="golbbooking-seats" class="golbbooking-form__input golbbooking-form__input--seats" min="1" max="{settings.booking.maxSeats}" required="required"/>
+                            <span class="golbbooking-form__hint"><f:translate key="form.seats.hint" extensionName="GolbEventsBooking" arguments="{0: settings.booking.maxSeats}"/></span>
+                            <f:render partial="Booking/Errors" arguments="{property: 'seats'}"/>
+                        </div>
+
+                        <div class="golbbooking-form__row">
+                            <label class="golbbooking-form__label" for="golbbooking-note"><f:translate key="form.note" extensionName="GolbEventsBooking"/></label>
+                            <f:form.textarea property="note" id="golbbooking-note" class="golbbooking-form__textarea" rows="3"/>
+                            <f:render partial="Booking/Errors" arguments="{property: 'note'}"/>
+                        </div>
+
+                        <f:comment>Honeypot: hidden from people, filled by robots</f:comment>
+                        <div class="golbbooking-form__website" aria-hidden="true">
+                            <label for="golbbooking-website">Website</label>
+                            <f:form.textfield property="website" id="golbbooking-website" tabindex="-1" autocomplete="off"/>
+                        </div>
+
+                        <div class="golbbooking-form__row golbbooking-form__row--privacy">
+                            <label class="golbbooking-form__checkbox">
+                                <f:form.checkbox property="privacy" value="1" required="required"/>
+                                <span>
+                                    <f:if condition="{settings.privacyPageUid}">
+                                        <f:then><f:translate key="form.privacy.before" extensionName="GolbEventsBooking"/> <f:link.page pageUid="{settings.privacyPageUid}" target="_blank" rel="noopener"><f:translate key="form.privacy.link" extensionName="GolbEventsBooking"/></f:link.page><f:translate key="form.privacy.after" extensionName="GolbEventsBooking"/></f:then>
+                                        <f:else><f:translate key="form.privacy" extensionName="GolbEventsBooking"/></f:else>
+                                    </f:if>
+                                </span>
+                            </label>
+                            <f:render partial="Booking/Errors" arguments="{property: 'privacy'}"/>
+                        </div>
+                    </fieldset>
+
+                    <f:form.validationResults for="bookingRequest">
+                        <f:if condition="{validationResults.errors}">
+                            <ul class="golbbooking-form__errors golbbooking-form__errors--form" role="alert">
+                                <f:for each="{validationResults.errors}" as="error">
+                                    <li>{error.message}</li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </f:form.validationResults>
+
+                    <p class="golbbooking-form__actions">
+                        <f:form.submit value="{f:translate(key: 'form.submit', extensionName: 'GolbEventsBooking')}" class="golbbooking-form__submit"/>
+                    </p>
+                </f:form>
+            </f:then>
+            <f:else>
+                <f:comment>The form is gone (the date got full or closed meanwhile): still show why the submission failed</f:comment>
+                <f:form.validationResults for="bookingRequest">
+                    <f:if condition="{validationResults.flattenedErrors}">
+                        <ul class="golbbooking-form__errors golbbooking-form__errors--form" role="alert">
+                            <f:for each="{validationResults.flattenedErrors}" as="errors">
+                                <f:for each="{errors}" as="error">
+                                    <li>{error.message}</li>
+                                </f:for>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </f:form.validationResults>
+                <f:if condition="{availabilities}">
+                    <f:then>
+                        <p class="golbbooking-notice golbbooking-notice--full"><f:translate key="form.noBookableDates" extensionName="GolbEventsBooking"/></p>
+                        <f:render partial="Booking/Dates" arguments="{availabilities: availabilities, settings: settings, readOnly: 1}"/>
+                    </f:then>
+                    <f:else>
+                        <p class="golbbooking-notice golbbooking-notice--past"><f:translate key="form.noDates" extensionName="GolbEventsBooking"/></p>
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+    </div>
+</f:section>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    The validation errors of one property of the booking request.
+
+    Variables: property (name of the BookingRequest property).
+</f:comment>
+<f:form.validationResults for="bookingRequest.{property}">
+    <f:if condition="{validationResults.errors}">
+        <ul class="golbbooking-form__errors" role="alert">
+            <f:for each="{validationResults.errors}" as="error">
+                <li>{error.message}</li>
+            </f:for>
+        </ul>
+    </f:if>
+</f:form.validationResults>
+</html>

@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:comment>
+    Target of the cancellation link: asks for confirmation (outcome "ask"),
+    reports the cancellation ("cancelled"), that the booking was over
+    already ("already") or a failure ("failed").
+
+    Variables: booking, event, occurrence, settings, outcome.
+</f:comment>
+<f:section name="Main">
+    <div class="golbbooking golbbooking--cancel">
+        <h2 class="golbbooking__title"><f:translate key="cancel.title.{outcome}" extensionName="GolbEventsBooking"/></h2>
+        <p class="golbbooking-notice golbbooking-notice--{outcome}"><f:translate key="cancel.text.{outcome}" extensionName="GolbEventsBooking"/></p>
+        <f:render partial="Booking/Summary" arguments="{booking: booking, event: event, occurrence: occurrence, settings: settings}"/>
+        <f:if condition="{outcome} == 'ask'">
+            <f:form action="cancel" controller="Booking" arguments="{token: booking.token}" class="golbbooking-form golbbooking-form--cancel">
+                <f:form.hidden name="confirmed" value="1"/>
+                <p class="golbbooking-form__actions">
+                    <f:form.submit value="{f:translate(key: 'cancel.submit', extensionName: 'GolbEventsBooking')}" class="golbbooking-form__submit golbbooking-form__submit--cancel"/>
+                </p>
+            </f:form>
+        </f:if>
+    </div>
+</f:section>
+</html>

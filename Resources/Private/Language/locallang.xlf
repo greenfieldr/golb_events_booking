@@ -6,6 +6,231 @@
             <trans-unit id="extension.title">
                 <source>Golb Events Booking</source>
             </trans-unit>
+            <trans-unit id="form.title">
+                <source>Book this event</source>
+            </trans-unit>
+            <trans-unit id="form.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="form.participant">
+                <source>Participant</source>
+            </trans-unit>
+            <trans-unit id="form.salutation">
+                <source>Salutation</source>
+            </trans-unit>
+            <trans-unit id="form.firstName">
+                <source>First name</source>
+            </trans-unit>
+            <trans-unit id="form.lastName">
+                <source>Last name</source>
+            </trans-unit>
+            <trans-unit id="form.email">
+                <source>Email address</source>
+            </trans-unit>
+            <trans-unit id="form.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="form.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="form.seats">
+                <source>Seats</source>
+            </trans-unit>
+            <trans-unit id="form.seats.hint">
+                <source>Up to %1$s seats per booking</source>
+            </trans-unit>
+            <trans-unit id="form.note">
+                <source>Note</source>
+            </trans-unit>
+            <trans-unit id="form.privacy">
+                <source>I agree that my data is stored to process this booking.</source>
+            </trans-unit>
+            <trans-unit id="form.privacy.before">
+                <source>I agree that my data is stored to process this booking and I have read the</source>
+            </trans-unit>
+            <trans-unit id="form.privacy.link">
+                <source>privacy policy</source>
+            </trans-unit>
+            <trans-unit id="form.privacy.after">
+                <source>.</source>
+            </trans-unit>
+            <trans-unit id="form.submit">
+                <source>Book now</source>
+            </trans-unit>
+            <trans-unit id="form.noBookableDates">
+                <source>No date can be booked at the moment.</source>
+            </trans-unit>
+            <trans-unit id="form.noDates">
+                <source>There are no upcoming dates.</source>
+            </trans-unit>
+            <trans-unit id="salutation.mr">
+                <source>Mr</source>
+            </trans-unit>
+            <trans-unit id="salutation.ms">
+                <source>Ms</source>
+            </trans-unit>
+            <trans-unit id="salutation.mx">
+                <source>Mx</source>
+            </trans-unit>
+            <trans-unit id="date.freeSeats">
+                <source>%1$s seats free</source>
+            </trans-unit>
+            <trans-unit id="date.open">
+                <source>Seats available</source>
+            </trans-unit>
+            <trans-unit id="date.full">
+                <source>Fully booked</source>
+            </trans-unit>
+            <trans-unit id="date.waitingList">
+                <source>Fully booked, waiting list</source>
+            </trans-unit>
+            <trans-unit id="date.closed">
+                <source>Booking closed</source>
+            </trans-unit>
+            <trans-unit id="status.pending">
+                <source>Awaiting your confirmation</source>
+            </trans-unit>
+            <trans-unit id="status.confirmed">
+                <source>Confirmed</source>
+            </trans-unit>
+            <trans-unit id="status.waiting">
+                <source>On the waiting list</source>
+            </trans-unit>
+            <trans-unit id="status.cancelled">
+                <source>Cancelled</source>
+            </trans-unit>
+            <trans-unit id="summary.event">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="summary.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="summary.dateRemoved">
+                <source>This date was removed from the event. The organizer will contact you.</source>
+            </trans-unit>
+            <trans-unit id="summary.seats">
+                <source>Seats</source>
+            </trans-unit>
+            <trans-unit id="summary.participant">
+                <source>Participant</source>
+            </trans-unit>
+            <trans-unit id="summary.status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="success.title.pending">
+                <source>Please confirm your booking</source>
+            </trans-unit>
+            <trans-unit id="success.text.pending">
+                <source>We have sent an email to %1$s. Please click the link in that email to confirm your booking; the seats are reserved for you until then.</source>
+            </trans-unit>
+            <trans-unit id="success.title.confirmed">
+                <source>Your booking is confirmed</source>
+            </trans-unit>
+            <trans-unit id="success.text.confirmed">
+                <source>Thank you. A confirmation has been sent to %1$s.</source>
+            </trans-unit>
+            <trans-unit id="success.title.waiting">
+                <source>You are on the waiting list</source>
+            </trans-unit>
+            <trans-unit id="success.text.waiting">
+                <source>The date is fully booked. We have put you on the waiting list and will email %1$s as soon as seats become free.</source>
+            </trans-unit>
+            <trans-unit id="success.title.cancelled">
+                <source>Booking cancelled</source>
+            </trans-unit>
+            <trans-unit id="success.text.cancelled">
+                <source>This booking has been cancelled.</source>
+            </trans-unit>
+            <trans-unit id="confirm.title.confirmed">
+                <source>Your booking is confirmed</source>
+            </trans-unit>
+            <trans-unit id="confirm.text.confirmed">
+                <source>Thank you for confirming. We look forward to seeing you.</source>
+            </trans-unit>
+            <trans-unit id="confirm.title.already">
+                <source>Booking already confirmed</source>
+            </trans-unit>
+            <trans-unit id="confirm.text.already">
+                <source>This booking has been confirmed before; nothing else to do.</source>
+            </trans-unit>
+            <trans-unit id="confirm.title.cancelled">
+                <source>Booking cancelled</source>
+            </trans-unit>
+            <trans-unit id="confirm.text.cancelled">
+                <source>This booking has been cancelled and cannot be confirmed any more.</source>
+            </trans-unit>
+            <trans-unit id="confirm.title.failed">
+                <source>Confirmation not possible</source>
+            </trans-unit>
+            <trans-unit id="confirm.text.failed">
+                <source>The booking could not be confirmed. Please contact the organizer.</source>
+            </trans-unit>
+            <trans-unit id="cancel.title.ask">
+                <source>Cancel booking?</source>
+            </trans-unit>
+            <trans-unit id="cancel.text.ask">
+                <source>Do you really want to cancel this booking? The seats are released for other participants.</source>
+            </trans-unit>
+            <trans-unit id="cancel.submit">
+                <source>Yes, cancel my booking</source>
+            </trans-unit>
+            <trans-unit id="cancel.title.cancelled">
+                <source>Booking cancelled</source>
+            </trans-unit>
+            <trans-unit id="cancel.text.cancelled">
+                <source>Your booking has been cancelled. We are sorry you cannot attend.</source>
+            </trans-unit>
+            <trans-unit id="cancel.title.already">
+                <source>Booking already cancelled</source>
+            </trans-unit>
+            <trans-unit id="cancel.text.already">
+                <source>This booking is not active any more.</source>
+            </trans-unit>
+            <trans-unit id="cancel.title.failed">
+                <source>Cancellation not possible</source>
+            </trans-unit>
+            <trans-unit id="cancel.text.failed">
+                <source>The booking could not be cancelled. Please contact the organizer.</source>
+            </trans-unit>
+            <trans-unit id="action.cancel">
+                <source>Cancel this booking</source>
+            </trans-unit>
+            <trans-unit id="notFound.title">
+                <source>Booking not found</source>
+            </trans-unit>
+            <trans-unit id="notFound.text">
+                <source>The link is not valid or the booking does not exist any more.</source>
+            </trans-unit>
+            <trans-unit id="error.closed">
+                <source>Bookings for this date are not accepted at the moment.</source>
+            </trans-unit>
+            <trans-unit id="error.full">
+                <source>The date is fully booked.</source>
+            </trans-unit>
+            <trans-unit id="error.tooManySeats">
+                <source>The booking asks for more seats than allowed.</source>
+            </trans-unit>
+            <trans-unit id="error.invalidTransition">
+                <source>The booking cannot be changed this way.</source>
+            </trans-unit>
+            <trans-unit id="error.occurrence">
+                <source>Please choose a date.</source>
+            </trans-unit>
+            <trans-unit id="validator.invalidRequest">
+                <source>The form data is invalid.</source>
+            </trans-unit>
+            <trans-unit id="validator.spam">
+                <source>The form was submitted too quickly. Please try again.</source>
+            </trans-unit>
+            <trans-unit id="validator.privacy">
+                <source>Please agree to the processing of your data.</source>
+            </trans-unit>
+            <trans-unit id="validator.occurrence">
+                <source>Please choose one of the dates.</source>
+            </trans-unit>
+            <trans-unit id="validator.seats">
+                <source>Up to %1$s seats can be booked at once.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

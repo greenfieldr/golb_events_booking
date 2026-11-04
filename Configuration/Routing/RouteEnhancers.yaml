@@ -1,0 +1,42 @@
+# Route enhancer for the Booking form plugin: speaking URLs for the links
+# of the booking mails (success page, confirmation and cancellation). The
+# form itself and its submission use the plugin arguments without routes.
+#
+# Import the file into the site configuration (config/sites/<identifier>/config.yaml):
+#
+#   imports:
+#     - { resource: 'EXT:golb_events_booking/Configuration/Routing/RouteEnhancers.yaml' }
+#
+# and restrict the enhancer to the pages with the plugin below the import
+# if the form is not rendered on every event page:
+#
+#   routeEnhancers:
+#     GolbEventsBookingForm:
+#       limitToPages: [12]
+#
+# Resulting URLs (form on /events/conference):
+#
+#   /events/conference/booking/<token>            success page of a booking
+#   /events/conference/booking/<token>/confirm    confirmation link
+#   /events/conference/booking/<token>/cancel     cancellation link
+routeEnhancers:
+  GolbEventsBookingForm:
+    type: Extbase
+    extension: GolbEventsBooking
+    plugin: Form
+    routes:
+      - routePath: '/booking/{token}'
+        _controller: 'Booking::success'
+        _arguments:
+          token: 'token'
+      - routePath: '/booking/{token}/confirm'
+        _controller: 'Booking::confirm'
+        _arguments:
+          token: 'token'
+      - routePath: '/booking/{token}/cancel'
+        _controller: 'Booking::cancel'
+        _arguments:
+          token: 'token'
+    defaultController: 'Booking::form'
+    requirements:
+      token: '[0-9a-f]{40}'

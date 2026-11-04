@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    A text input of the booking form with label and errors.
+
+    Variables: property (name of the BookingRequest property), label
+    (translation key), required (optional), type (optional, default text),
+    autocomplete (optional).
+</f:comment>
+<div class="golbbooking-form__row">
+    <label class="golbbooking-form__label" for="golbbooking-{property}"><f:translate key="{label}" extensionName="GolbEventsBooking"/><f:if condition="{required}"> <span class="golbbooking-form__required" aria-hidden="true">*</span></f:if></label>
+    <f:form.textfield property="{property}" id="golbbooking-{property}" class="golbbooking-form__input" type="{type ?: 'text'}" required="{f:if(condition: required, then: 'required')}" autocomplete="{autocomplete}"/>
+    <f:render partial="Booking/Errors" arguments="{property: property}"/>
+</div>
+</html>

@@ -77,7 +77,7 @@ final class OccurrencesSynchronizedListenerTest extends AbstractBookingTestCase
 
         $this->getConnectionPool()->getConnectionForTable('pages')->update(
             'pages',
-            ['tx_golbevents_start' => '2026-05-11 19:30:00', 'tx_golbevents_end' => '2026-05-11 21:00:00'],
+            ['tx_golbevents_start' => '2099-05-11 19:30:00', 'tx_golbevents_end' => '2099-05-11 21:00:00'],
             ['uid' => 3],
             ['uid' => Connection::PARAM_INT]
         );

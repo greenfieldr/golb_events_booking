@@ -45,3 +45,25 @@ plugin.tx_golbeventsbooking {
         occurrenceLimit = {$plugin.tx_golbeventsbooking.settings.occurrenceLimit}
     }
 }
+
+# The plugin inherits from plugin.tx_golbeventsbooking
+plugin.tx_golbeventsbooking_form < plugin.tx_golbeventsbooking
+
+# The booking form as TypoScript object for the detail rendering of event
+# pages, e.g. in the page template of the site for event pages only:
+#
+#   [page["doktype"] == 42]
+#   page.10.variables.booking < lib.golbEventsBooking.form
+#   [END]
+#
+# or in a Fluid template:
+#
+#   <f:cObject typoscriptObjectPath="lib.golbEventsBooking.form"/>
+#
+# The form books the dates of the current page. Every action is uncached,
+# the object renders as USER_INT.
+lib.golbEventsBooking.form = EXTBASEPLUGIN
+lib.golbEventsBooking.form {
+    extensionName = GolbEventsBooking
+    pluginName = Form
+}
