@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="SystemEmail"/>
+<f:section name="Title"><f:translate key="mail.waiting.title" extensionName="GolbEventsBooking"/></f:section>
+<f:section name="Main">
+<p><f:translate key="mail.waiting.text" extensionName="GolbEventsBooking"/></p>
+<f:if condition="{eventUrl}"><p><a href="{eventUrl}"><f:translate key="mail.action.event" extensionName="GolbEventsBooking"/></a></p></f:if>
+<f:render partial="Booking/Facts" arguments="{booking: booking, event: event, occurrence: occurrence, dateFormat: dateFormat, timeFormat: timeFormat, eventUrl: eventUrl}"/>
+<f:if condition="{cancelUrl}">
+    <p><f:translate key="mail.cancelHint" extensionName="GolbEventsBooking"/><br><a href="{cancelUrl}"><f:translate key="mail.action.cancel" extensionName="GolbEventsBooking"/></a></p>
+</f:if>
+</f:section>
+</html>

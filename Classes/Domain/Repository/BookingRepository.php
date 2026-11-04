@@ -130,6 +130,45 @@ class BookingRepository extends Repository
     }
 
     /**
+     * Confirmed bookings of dates starting in the given period that have not
+     * been reminded yet.
+     *
+     * @return Booking[]
+     */
+    public function findDueForReminder(\DateTimeImmutable $from, \DateTimeImmutable $until): array
+    {
+        $query = $this->createQuery();
+        $query->matching($query->logicalAnd(
+            $query->equals('status', Booking::STATUS_CONFIRMED),
+            // The timestamp column holds 0 while no reminder was sent
+            $query->lessThanOrEqual('reminderSentAt', 0),
+            $query->equals('dateRemoved', false),
+            $query->greaterThanOrEqual('start', $from->getTimestamp()),
+            $query->lessThanOrEqual('start', $until->getTimestamp())
+        ));
+        $query->setOrderings(['start' => QueryInterface::ORDER_ASCENDING, 'uid' => QueryInterface::ORDER_ASCENDING]);
+
+        return $this->toList($query->execute());
+    }
+
+    /**
+     * Bookings of dates before the given time that still hold personal data.
+     *
+     * @return Booking[]
+     */
+    public function findForAnonymization(\DateTimeImmutable $before): array
+    {
+        $query = $this->createQuery();
+        $query->matching($query->logicalAnd(
+            $query->equals('anonymized', false),
+            $query->greaterThan('start', 0),
+            $query->lessThan('start', $before->getTimestamp())
+        ));
+
+        return $this->toList($query->execute());
+    }
+
+    /**
      * @param iterable<mixed> $result
      * @return Booking[]
      */

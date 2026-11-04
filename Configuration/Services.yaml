@@ -27,3 +27,9 @@ services:
 
   Greenfieldr\GolbEventsBooking\Domain\Repository\BookingSettingsRepository:
     public: true
+
+  Greenfieldr\GolbEventsBooking\Mail\BookingMailer:
+    public: true
+
+  Greenfieldr\GolbEventsBooking\Service\BookingLinkService:
+    public: true

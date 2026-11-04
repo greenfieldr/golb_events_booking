@@ -231,6 +231,135 @@
             <trans-unit id="validator.seats">
                 <source>Up to %1$s seats can be booked at once.</source>
             </trans-unit>
+            <trans-unit id="mail.optIn.subject">
+                <source>Please confirm your booking: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.optIn.title">
+                <source>Please confirm your booking</source>
+            </trans-unit>
+            <trans-unit id="mail.optIn.text">
+                <source>Thank you for your booking. Please confirm it by clicking the following link. The seats are reserved for you until then:</source>
+            </trans-unit>
+            <trans-unit id="mail.optIn.deadline">
+                <source>The reservation expires on</source>
+            </trans-unit>
+            <trans-unit id="mail.confirmed.subject">
+                <source>Your booking is confirmed: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.confirmed.title">
+                <source>Your booking is confirmed</source>
+            </trans-unit>
+            <trans-unit id="mail.confirmed.text">
+                <source>Thank you for your booking. We look forward to seeing you. The event is attached as calendar file.</source>
+            </trans-unit>
+            <trans-unit id="mail.waiting.subject">
+                <source>You are on the waiting list: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.waiting.title">
+                <source>You are on the waiting list</source>
+            </trans-unit>
+            <trans-unit id="mail.waiting.text">
+                <source>The date is fully booked at the moment. We have put you on the waiting list and will inform you as soon as seats become free.</source>
+            </trans-unit>
+            <trans-unit id="mail.promoted.subject">
+                <source>A seat became free: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.promoted.title">
+                <source>Good news: your booking is confirmed</source>
+            </trans-unit>
+            <trans-unit id="mail.promoted.text">
+                <source>Seats became free and your booking moved up from the waiting list. It is confirmed now; the event is attached as calendar file.</source>
+            </trans-unit>
+            <trans-unit id="mail.cancelled.subject">
+                <source>Your booking was cancelled: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.cancelled.title">
+                <source>Your booking was cancelled</source>
+            </trans-unit>
+            <trans-unit id="mail.cancelled.text">
+                <source>Your booking has been cancelled. If you did not cancel it yourself, the reservation expired or the organizer cancelled it; please contact the organizer in case of questions.</source>
+            </trans-unit>
+            <trans-unit id="mail.reminder.subject">
+                <source>Reminder: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.reminder.title">
+                <source>Your event is coming up</source>
+            </trans-unit>
+            <trans-unit id="mail.reminder.text">
+                <source>This is a reminder of your booking. We look forward to seeing you.</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerBooked.subject">
+                <source>New booking: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerBooked.title">
+                <source>New booking</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerBooked.text">
+                <source>A booking was made for your event.</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerCancelled.subject">
+                <source>Booking cancelled: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerCancelled.title">
+                <source>Booking cancelled</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerCancelled.text">
+                <source>A booking of your event was cancelled.</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerDatesRemoved.subject">
+                <source>Booked dates were removed: %1$s</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerDatesRemoved.title">
+                <source>Booked dates were removed</source>
+            </trans-unit>
+            <trans-unit id="mail.organizerDatesRemoved.text">
+                <source>Dates of your event were changed or removed, and the following bookings lost their date. Please assign another date to them in the backend or inform the participants.</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.event">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.seats">
+                <source>Seats</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.participant">
+                <source>Participant</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.note">
+                <source>Note</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="mail.booking.bookedStart">
+                <source>Booked start</source>
+            </trans-unit>
+            <trans-unit id="mail.action.confirm">
+                <source>Confirm booking</source>
+            </trans-unit>
+            <trans-unit id="mail.action.cancel">
+                <source>Cancel booking</source>
+            </trans-unit>
+            <trans-unit id="mail.action.event">
+                <source>Event page</source>
+            </trans-unit>
+            <trans-unit id="mail.action.manage">
+                <source>Your booking</source>
+            </trans-unit>
+            <trans-unit id="mail.cancelHint">
+                <source>You cannot attend? Cancel your booking here:</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,0 +1,5 @@
+<f:layout name="SystemEmail"/>
+<f:section name="Title"><f:translate key="mail.organizerBooked.title" extensionName="GolbEventsBooking"/></f:section>
+<f:section name="Main"><f:translate key="mail.organizerBooked.text" extensionName="GolbEventsBooking"/>
+
+<f:render partial="Booking/Facts" arguments="{booking: booking, event: event, occurrence: occurrence, dateFormat: dateFormat, timeFormat: timeFormat, eventUrl: eventUrl, participant: 1}"/></f:section>

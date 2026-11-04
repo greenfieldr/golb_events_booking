@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="SystemEmail"/>
+<f:section name="Title"><f:translate key="mail.organizerDatesRemoved.title" extensionName="GolbEventsBooking"/></f:section>
+<f:section name="Main">
+<p><f:translate key="mail.organizerDatesRemoved.text" extensionName="GolbEventsBooking"/></p>
+<f:if condition="{event}"><p><strong>{event.title}</strong><f:if condition="{eventUrl}"> &ndash; <a href="{eventUrl}"><f:translate key="mail.action.event" extensionName="GolbEventsBooking"/></a></f:if></p></f:if>
+<ul>
+    <f:for each="{bookings}" as="removed">
+        <li>{removed.name} &lt;{removed.email}&gt;, {removed.seats} &times; <f:translate key="mail.booking.seats" extensionName="GolbEventsBooking"/>, <f:translate key="mail.booking.bookedStart" extensionName="GolbEventsBooking"/> <f:if condition="{removed.start}">{removed.start -> f:format.date(format: dateFormat)} {removed.start -> f:format.date(format: timeFormat)}</f:if>, <f:translate key="mail.booking.status" extensionName="GolbEventsBooking"/>: <f:translate key="status.{removed.status}" extensionName="GolbEventsBooking"/></li>
+    </f:for>
+</ul>
+</f:section>
+</html>

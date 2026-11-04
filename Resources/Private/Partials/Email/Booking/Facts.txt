@@ -1,0 +1,8 @@
+<f:spaceless><f:if condition="{event}"><f:translate key="mail.booking.event" extensionName="GolbEventsBooking"/>: {event.title}
+</f:if><f:translate key="mail.booking.date" extensionName="GolbEventsBooking"/>: <f:if condition="{occurrence}"><f:then>{occurrence.start -> f:format.date(format: dateFormat)}<f:if condition="!{occurrence.allDay}"> {occurrence.start -> f:format.date(format: timeFormat)}</f:if><f:if condition="{occurrence.endTime}"> - <f:if condition="{occurrence.multiDay}">{occurrence.end -> f:format.date(format: dateFormat)} </f:if><f:if condition="!{occurrence.allDay}">{occurrence.end -> f:format.date(format: timeFormat)}</f:if></f:if></f:then><f:else><f:if condition="{booking.start}">{booking.start -> f:format.date(format: dateFormat)} {booking.start -> f:format.date(format: timeFormat)}</f:if></f:else></f:if>
+<f:translate key="mail.booking.seats" extensionName="GolbEventsBooking"/>: {booking.seats}
+<f:translate key="mail.booking.participant" extensionName="GolbEventsBooking"/>: {booking.name}<f:if condition="{booking.company}">, {booking.company}</f:if>
+<f:if condition="{participant}"><f:translate key="mail.booking.email" extensionName="GolbEventsBooking"/>: {booking.email}
+<f:if condition="{booking.phone}"><f:translate key="mail.booking.phone" extensionName="GolbEventsBooking"/>: {booking.phone}
+</f:if><f:if condition="{booking.note}"><f:translate key="mail.booking.note" extensionName="GolbEventsBooking"/>: {booking.note}
+</f:if></f:if><f:translate key="mail.booking.status" extensionName="GolbEventsBooking"/>: <f:translate key="status.{booking.status}" extensionName="GolbEventsBooking"/></f:spaceless>

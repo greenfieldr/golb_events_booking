@@ -1,0 +1,61 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    The facts of a booking for the HTML mails: event, date, seats,
+    participant and status.
+
+    Variables: booking, event, occurrence, dateFormat, timeFormat,
+    eventUrl, participant (optional, 1 to list the contact data for the
+    organizer).
+</f:comment>
+<table cellpadding="4" cellspacing="0" border="0" style="border-collapse: collapse; margin: 16px 0;">
+    <f:if condition="{event}">
+        <tr>
+            <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.event" extensionName="GolbEventsBooking"/></th>
+            <td><f:if condition="{eventUrl}"><f:then><a href="{eventUrl}">{event.title}</a></f:then><f:else>{event.title}</f:else></f:if></td>
+        </tr>
+    </f:if>
+    <tr>
+        <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.date" extensionName="GolbEventsBooking"/></th>
+        <td>
+            <f:if condition="{occurrence}">
+                <f:then>
+                    {occurrence.start -> f:format.date(format: dateFormat)}<f:if condition="!{occurrence.allDay}"> {occurrence.start -> f:format.date(format: timeFormat)}</f:if><f:if condition="{occurrence.endTime}"> &ndash; <f:if condition="{occurrence.multiDay}">{occurrence.end -> f:format.date(format: dateFormat)} </f:if><f:if condition="!{occurrence.allDay}">{occurrence.end -> f:format.date(format: timeFormat)}</f:if></f:if>
+                </f:then>
+                <f:else>
+                    <f:if condition="{booking.start}">{booking.start -> f:format.date(format: dateFormat)} {booking.start -> f:format.date(format: timeFormat)}</f:if>
+                </f:else>
+            </f:if>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.seats" extensionName="GolbEventsBooking"/></th>
+        <td>{booking.seats}</td>
+    </tr>
+    <tr>
+        <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.participant" extensionName="GolbEventsBooking"/></th>
+        <td>{booking.name}<f:if condition="{booking.company}"><br>{booking.company}</f:if></td>
+    </tr>
+    <f:if condition="{participant}">
+        <tr>
+            <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.email" extensionName="GolbEventsBooking"/></th>
+            <td><a href="mailto:{booking.email}">{booking.email}</a></td>
+        </tr>
+        <f:if condition="{booking.phone}">
+            <tr>
+                <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.phone" extensionName="GolbEventsBooking"/></th>
+                <td>{booking.phone}</td>
+            </tr>
+        </f:if>
+        <f:if condition="{booking.note}">
+            <tr>
+                <th align="left" style="padding-right: 16px; vertical-align: top;"><f:translate key="mail.booking.note" extensionName="GolbEventsBooking"/></th>
+                <td>{booking.note -> f:format.nl2br()}</td>
+            </tr>
+        </f:if>
+    </f:if>
+    <tr>
+        <th align="left" style="padding-right: 16px;"><f:translate key="mail.booking.status" extensionName="GolbEventsBooking"/></th>
+        <td><f:translate key="status.{booking.status}" extensionName="GolbEventsBooking"/></td>
+    </tr>
+</table>
+</html>
