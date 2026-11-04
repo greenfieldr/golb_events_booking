@@ -48,6 +48,11 @@ notifications.
 
     Introduction/Index
     Installation/Index
+    Editor/Index
+    Configuration/Index
+    Templating/Index
+    Developer/Index
+    Privacy/Index
 
 ..  Meta Menu
 
