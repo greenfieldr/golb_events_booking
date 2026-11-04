@@ -1,0 +1,122 @@
+{
+	"name": "greenfieldr/golb_events_booking",
+	"description": "Golb Events Booking - Book Events The Page Way! An add-on to Golb Events that lets visitors and frontend users book event dates.",
+	"license": "GPL-3.0-or-later",
+	"type": "typo3-cms-extension",
+	"keywords": [
+		"TYPO3",
+		"extension",
+		"events",
+		"booking",
+		"registration",
+		"golb"
+	],
+	"authors": [
+		{
+			"name": "Marcel Küpper",
+			"email": "typo3dev@kuepper.net",
+			"role": "Developer"
+		}
+	],
+	"homepage": "https://github.com/greenfieldr/golb_events_booking",
+	"support": {
+		"issues": "https://github.com/greenfieldr/golb_events_booking/issues",
+		"source": "https://github.com/greenfieldr/golb_events_booking"
+	},
+	"require": {
+		"php": "^8.2",
+		"greenfieldr/golb": "^14.0 || 14.x-dev",
+		"greenfieldr/golb_events": "^14.1 || 14.x-dev",
+		"typo3/cms-core": "^14.3",
+		"typo3/cms-extbase": "^14.3",
+		"typo3/cms-fluid": "^14.3",
+		"typo3/cms-frontend": "^14.3"
+	},
+	"require-dev": {
+		"a9f/typo3-fractor": "^1.1",
+		"phpstan/extension-installer": "^1.4",
+		"phpstan/phpstan": "^2.1",
+		"phpstan/phpstan-deprecation-rules": "^2.0",
+		"phpstan/phpstan-phpunit": "^2.0",
+		"phpstan/phpstan-strict-rules": "^2.0",
+		"phpunit/phpcov": "^10.0 || ^11.0",
+		"saschaegerer/phpstan-typo3": "^3.1",
+		"spaze/phpstan-disallowed-calls": "^4.0",
+		"ssch/typo3-rector": "^3.16",
+		"typo3/cms-fluid-styled-content": "^14.3",
+		"typo3/coding-standards": "^0.9",
+		"typo3/testing-framework": "^9.7"
+	},
+	"autoload": {
+		"psr-4": {
+			"Greenfieldr\\GolbEventsBooking\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Greenfieldr\\GolbEventsBooking\\Tests\\": "Tests/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"a9f/fractor-extension-installer": true,
+			"phpstan/extension-installer": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"bin-dir": ".Build/bin",
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-main": "14.x-dev"
+		},
+		"typo3/cms": {
+			"extension-key": "golb_events_booking",
+			"web-dir": ".Build/public"
+		}
+	},
+	"scripts": {
+		"ci": [
+			"@ci:composer",
+			"@ci:php",
+			"@ci:tests"
+		],
+		"ci:composer": [
+			"@composer validate --strict"
+		],
+		"ci:coverage": [
+			"@ci:coverage:unit",
+			"@ci:coverage:functional",
+			"@ci:coverage:merge"
+		],
+		"ci:coverage:functional": "phpunit --configuration Build/phpunit/FunctionalTests.xml --coverage-php .Build/coverage/functional.cov",
+		"ci:coverage:merge": "phpcov merge --clover .Build/coverage/clover.xml --text php://stdout .Build/coverage",
+		"ci:coverage:unit": "phpunit --configuration Build/phpunit/UnitTests.xml --coverage-php .Build/coverage/unit.cov",
+		"ci:fractor": "fractor process --dry-run --config Build/fractor/fractor.php",
+		"ci:php": [
+			"@ci:php:cs",
+			"@ci:php:stan",
+			"@ci:php:rector",
+			"@ci:fractor"
+		],
+		"ci:php:cs": "php-cs-fixer fix --config Build/php-cs-fixer/config.php --dry-run --diff",
+		"ci:php:rector": "rector process --dry-run --config Build/rector/rector.php",
+		"ci:php:stan": "phpstan analyse --configuration Build/phpstan/phpstan.neon --no-progress",
+		"ci:tests": [
+			"@ci:tests:unit",
+			"@ci:tests:functional"
+		],
+		"ci:tests:functional": "phpunit --configuration Build/phpunit/FunctionalTests.xml",
+		"ci:tests:unit": "phpunit --configuration Build/phpunit/UnitTests.xml",
+		"fix": [
+			"@fix:php:rector",
+			"@fix:fractor",
+			"@fix:php:cs"
+		],
+		"fix:fractor": "fractor process --config Build/fractor/fractor.php",
+		"fix:php:cs": "php-cs-fixer fix --config Build/php-cs-fixer/config.php",
+		"fix:php:rector": "rector process --config Build/rector/rector.php"
+	}
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-11-04T12:00:00Z" product-name="golb_events_booking">
+        <header/>
+        <body>
+            <trans-unit id="extension.title">
+                <source>Golb Events Booking</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
