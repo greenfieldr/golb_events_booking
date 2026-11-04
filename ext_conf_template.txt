@@ -1,0 +1,6 @@
+# cat=basic; type=boolean; label=Double opt-in for guests: Bookings of visitors who are not logged in have to be confirmed through a link sent by email before they count as confirmed. Logged in frontend users are confirmed at once.
+doubleOptIn = 1
+# cat=basic; type=int+; label=Pending hours: Unconfirmed bookings reserve their seats for this many hours; the command "golbeventsbooking:cleanup" cancels them afterwards.
+pendingHours = 48
+# cat=basic; type=int+; label=Retention days: The command "golbeventsbooking:cleanup" anonymizes the personal data of bookings this many days after the booked date. 0 keeps the data.
+retentionDays = 0

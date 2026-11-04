@@ -1,0 +1,47 @@
+plugin.tx_golbeventsbooking {
+    view {
+        # Golb's layout is reused (index 0), the templates of this extension
+        # come at index 5, site overrides go to the constants (index 10).
+        templateRootPaths {
+            0 = EXT:golb/Resources/Private/Templates/
+            5 = EXT:golb_events_booking/Resources/Private/Templates/
+            10 = {$plugin.tx_golbeventsbooking.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:golb/Resources/Private/Partials/
+            3 = EXT:golb_events/Resources/Private/Partials/
+            5 = EXT:golb_events_booking/Resources/Private/Partials/
+            10 = {$plugin.tx_golbeventsbooking.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:golb/Resources/Private/Layouts/
+            5 = EXT:golb_events_booking/Resources/Private/Layouts/
+            10 = {$plugin.tx_golbeventsbooking.view.layoutRootPath}
+        }
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_golbeventsbooking.persistence.storagePid}
+    }
+
+    settings {
+        # Golb's layout adds the stylesheets listed in "css" to the page if
+        # includeCss is enabled. Remove an entry (settings.css.golbEventsBooking >)
+        # or add your own file.
+        includeCss = {$plugin.tx_golbeventsbooking.settings.includeCss}
+        css {
+            golb = EXT:golb/Resources/Public/Css/golb.css
+            golbEvents = EXT:golb_events/Resources/Public/Css/golb_events.css
+            golbEventsBooking = EXT:golb_events_booking/Resources/Public/Css/golb_events_booking.css
+        }
+
+        dateFormat = {$plugin.tx_golbeventsbooking.settings.dateFormat}
+        timeFormat = {$plugin.tx_golbeventsbooking.settings.timeFormat}
+
+        privacyPageUid = {$plugin.tx_golbeventsbooking.settings.privacyPageUid}
+        minimumFillTime = {$plugin.tx_golbeventsbooking.settings.minimumFillTime}
+        occurrenceLimit = {$plugin.tx_golbeventsbooking.settings.occurrenceLimit}
+    }
+}

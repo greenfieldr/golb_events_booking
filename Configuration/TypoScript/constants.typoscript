@@ -1,0 +1,30 @@
+plugin.tx_golbeventsbooking {
+    view {
+        # cat=plugin.tx_golbeventsbooking/file; type=string; label=Path to template files
+        templateRootPath = EXT:golb_events_booking/Resources/Private/Templates/
+        # cat=plugin.tx_golbeventsbooking/file; type=string; label=Path to partial files
+        partialRootPath = EXT:golb_events_booking/Resources/Private/Partials/
+        # cat=plugin.tx_golbeventsbooking/file; type=string; label=Path to layout files
+        layoutRootPath = EXT:golb_events_booking/Resources/Private/Layouts/
+    }
+
+    persistence {
+        # cat=plugin.tx_golbeventsbooking/a; type=int+; label=Storage folder: Uid of the folder the bookings are stored in
+        storagePid =
+    }
+
+    settings {
+        # cat=plugin.tx_golbeventsbooking/enable/100; type=boolean; label=Include the default CSS: Adds the plain stylesheet of Golb Events Booking to the page. Disable it to style the markup yourself.
+        includeCss = 1
+        # cat=plugin.tx_golbeventsbooking/a/100; type=string; label=Date format: Format of the dates in the default templates and mails (f:format.date)
+        dateFormat = %d.%m.%Y
+        # cat=plugin.tx_golbeventsbooking/a/110; type=string; label=Time format: Format of the times in the default templates and mails (f:format.date)
+        timeFormat = %H:%M
+        # cat=plugin.tx_golbeventsbooking/a/200; type=int+; label=Privacy policy page: Uid of the page linked from the privacy checkbox of the booking form
+        privacyPageUid =
+        # cat=plugin.tx_golbeventsbooking/a/210; type=int+; label=Minimum fill time: Seconds a visitor has to spend on the form at least; faster submissions are treated as spam
+        minimumFillTime = 3
+        # cat=plugin.tx_golbeventsbooking/a/220; type=int+; label=Number of upcoming dates offered in the booking form of a recurring event
+        occurrenceLimit = 12
+    }
+}

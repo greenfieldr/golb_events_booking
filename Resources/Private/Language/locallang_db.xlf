@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-11-04T12:00:00Z" product-name="golb_events_booking">
+        <header/>
+        <body>
+            <trans-unit id="pages.bookingTab">
+                <source>Booking</source>
+            </trans-unit>
+            <trans-unit id="pages.palette.bookingSettings">
+                <source>Booking settings</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_enabled">
+                <source>Booking enabled</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_enabled.description">
+                <source>Visitors can book the dates of this event.</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_capacity">
+                <source>Capacity per date</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_capacity.description">
+                <source>Number of seats available for every date; 0 for unlimited seats.</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_max_seats">
+                <source>Seats per booking</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_max_seats.description">
+                <source>Maximum number of seats one booking may take.</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_waiting_list">
+                <source>Waiting list</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_waiting_list.description">
+                <source>When a date is fully booked, further bookings are put on a waiting list and move up when seats become free.</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_opens">
+                <source>Booking opens at</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_opens.description">
+                <source>Bookings are accepted from this point in time; leave empty to accept them at once.</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_closes_hours">
+                <source>Booking closes (hours before start)</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_closes_hours.description">
+                <source>Bookings close this many hours before the start of each date; 0 closes them at the start.</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_notification_email">
+                <source>Notification email</source>
+            </trans-unit>
+            <trans-unit id="pages.tx_golbeventsbooking_notification_email.description">
+                <source>Receives a notification about every booking and cancellation. Leave empty to use the email address of the organizer record.</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking">
+                <source>Booking</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.event">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.occurrence">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.occurrence.none">
+                <source>No date (removed)</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.start">
+                <source>Booked start</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.start.description">
+                <source>Start of the booked date at the time of booking, kept when the date is removed.</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.palette.status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.pending_reason">
+                <source>Pending because of</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.pending_until">
+                <source>Pending until</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.pending_until.description">
+                <source>The seats are reserved until this time; afterwards the cleanup command cancels the booking.</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.date_removed">
+                <source>Booked date was removed</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.date_removed.description">
+                <source>The date of this booking no longer exists (the event was changed). Assign another date and uncheck this flag.</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.seats">
+                <source>Seats</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.frontend_user">
+                <source>Frontend user</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.salutation">
+                <source>Salutation</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.first_name">
+                <source>First name</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.last_name">
+                <source>Last name</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.note">
+                <source>Note</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.privacy_accepted_at">
+                <source>Privacy policy accepted at</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.confirmed_at">
+                <source>Confirmed at</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.cancelled_at">
+                <source>Cancelled at</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.reminder_sent_at">
+                <source>Reminder sent at</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.anonymized">
+                <source>Anonymized</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.tab.participant">
+                <source>Participant</source>
+            </trans-unit>
+            <trans-unit id="tx_golbeventsbooking_domain_model_booking.tab.bookkeeping">
+                <source>Bookkeeping</source>
+            </trans-unit>
+            <trans-unit id="status.pending">
+                <source>Pending</source>
+            </trans-unit>
+            <trans-unit id="status.confirmed">
+                <source>Confirmed</source>
+            </trans-unit>
+            <trans-unit id="status.waiting">
+                <source>Waiting list</source>
+            </trans-unit>
+            <trans-unit id="status.cancelled">
+                <source>Cancelled</source>
+            </trans-unit>
+            <trans-unit id="pendingReason.none">
+                <source>-</source>
+            </trans-unit>
+            <trans-unit id="pendingReason.optin">
+                <source>Email confirmation (double opt-in)</source>
+            </trans-unit>
+            <trans-unit id="salutation.mr">
+                <source>Mr</source>
+            </trans-unit>
+            <trans-unit id="salutation.ms">
+                <source>Ms</source>
+            </trans-unit>
+            <trans-unit id="salutation.mx">
+                <source>Mx</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
